@@ -1,0 +1,68 @@
+/* [project]/src/app/projects/projects.module.css [app-client] (css) */
+.projects-module__D-cxOq__wrap {
+  background-color: #fff;
+  min-height: 100vh;
+  font-family: Inter, sans-serif;
+}
+
+.projects-module__D-cxOq__headerRow {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  display: flex;
+}
+
+.projects-module__D-cxOq__pageTitle {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.projects-module__D-cxOq__addButton {
+  color: #fff;
+  cursor: pointer;
+  background-color: #007bff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 14px;
+  transition: background .3s;
+}
+
+.projects-module__D-cxOq__addButton:hover {
+  background-color: #0056b3;
+}
+
+.projects-module__D-cxOq__modalOverlay {
+  z-index: 1000;
+  background: rgba(0, 0, 0, .4);
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.projects-module__D-cxOq__modalContent {
+  background: #fff;
+  border-radius: 8px;
+  width: 600px;
+  padding: 24px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+}
+
+.projects-module__D-cxOq__closeButton {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 20px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+/*# sourceMappingURL=src_app_projects_projects_module_css_bad6b30c._.single.css.map*/

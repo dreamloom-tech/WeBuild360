@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["file:///F:/Webuild360/client/src/app/funds/expense/expense.module.css"],"sourcesContent":[".pageWrapper {\r\n  padding: 24px;\r\n  background-color: #fff;\r\n  font-family: Inter, sans-serif;\r\n  min-height: 100vh;\r\n}\r\n\r\n.pageTitle {\r\n  font-size: 20px;\r\n  font-weight: 600;\r\n  margin-bottom: 16px;\r\n  color: #333;\r\n}\r\n\r\n.tableWrapper {\r\n  overflow-x: auto;\r\n  border: 1px solid #ccc;\r\n  border-radius: 8px;\r\n  background-color: #fff;\r\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\r\n}\r\n\r\n.expenseTable {\r\n  width: 100%;\r\n  border-collapse: collapse;\r\n  font-size: 14px;\r\n  color: #333;\r\n  min-width: 960px;\r\n}\r\n\r\n.expenseTable th,\r\n.expenseTable td {\r\n  padding: 12px 16px;\r\n  border: 1px solid #ccc;\r\n  text-align: left;\r\n  vertical-align: middle;\r\n}\r\n\r\n.expenseTable th {\r\n  background-color: #f5f5f5;\r\n  font-weight: 600;\r\n  color: #555;\r\n  text-transform: uppercase;\r\n}\r\n\r\n.expenseTable tbody tr:hover {\r\n  background-color: #f9f9f9;\r\n}\r\n\r\n.emptyRow {\r\n  text-align: center;\r\n  padding: 24px;\r\n  color: #888;\r\n}\r\n"],"names":[],"mappings":"AAAA;;;;;;;AAOA;;;;;;;AAOA;;;;;;;;AAQA;;;;;;;;AAQA;;;;;;;AAQA;;;;;;;AAOA;;;;AAIA","debugId":null}}]
+}

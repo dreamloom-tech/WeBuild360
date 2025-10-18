@@ -1,0 +1,53 @@
+/* [project]/src/app/globals.css [app-client] (css) */
+:root {
+  --sidebar-width: 260px;
+  --sidebar-collapsed-width: 72px;
+  --topbar-height: 64px;
+  --page-max-width: 1200px;
+  --bg: #fff;
+  --app-bg: #f4f6f8;
+  --text: #233142;
+  --muted: #9aa6b0;
+  --primary: #0399bd;
+  --card-shadow: 0 6px 18px rgba(47, 63, 74, .06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--app-bg);
+  height: 100%;
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+}
+
+.container-sm {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: 0 18px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0a0a0a;
+    --text: #ededed;
+  }
+}
+
+img[src*="profile"] {
+  object-fit: cover;
+  max-width: 120px;
+  max-height: 120px;
+  display: inline-block;
+}
+
+/*# sourceMappingURL=src_app_globals_css_bad6b30c._.single.css.map*/

@@ -1,0 +1,49 @@
+/* [project]/src/app/funds/inflow/inflow.module.css [app-client] (css) */
+.inflow-module__eja9jq__wrap {
+  background-color: #fff;
+  min-height: 100vh;
+  font-family: Inter, sans-serif;
+}
+
+.inflow-module__eja9jq__headerRow {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  display: flex;
+}
+
+.inflow-module__eja9jq__pageTitle {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.inflow-module__eja9jq__addButton {
+  color: #fff;
+  cursor: pointer;
+  background-color: #007bff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 14px;
+  transition: background .3s;
+}
+
+.inflow-module__eja9jq__addButton:hover {
+  background-color: #0056b3;
+}
+
+.inflow-module__eja9jq__modalOverlay {
+  z-index: 1000;
+  background: rgba(0, 0, 0, .4);
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/*# sourceMappingURL=src_app_funds_inflow_inflow_module_css_bad6b30c._.single.css.map*/

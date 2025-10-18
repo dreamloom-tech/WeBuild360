@@ -1,0 +1,164 @@
+.container {
+  padding: 24px;
+  background: #f9fafb;
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #750c0c;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.dateBox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.dateInput {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.sectionHeader {
+  font-size: 18px;
+  font-weight: 600;
+  color: #750c0c;
+  border-bottom: 2px solid #750c0c;
+  margin: 24px 0 10px;
+}
+
+.tableWrapper {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.table th {
+  background: #750c0c;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.payBtn {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.daily {
+  background: #2d8f2d;
+}
+
+.weekly {
+  background: #f1a500;
+}
+
+.monthly {
+  background: #0077b6;
+}
+
+.payBtn:hover {
+  opacity: 0.8;
+}
+
+.salaryFormBox {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+.formHeader {
+  color: #750c0c;
+  font-size: 18px;
+  border-bottom: 2px solid #750c0c;
+  margin-bottom: 16px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.col {
+  flex: 1;
+  min-width: 220px;
+}
+
+.colCheckbox {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+}
+
+.input,
+.select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.submitBtn {
+  background: #750c0c;
+  color: #fff;
+  padding: 10px 26px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  transition: background 0.3s ease;
+}
+
+.submitBtn:hover {
+  background: #5e0a0a;
+}
+
+.paid {
+  color: green;
+  font-weight: 600;
+}
+
+.unpaid {
+  color: red;
+  font-weight: 600;
+}
+
+.emptyText {
+  text-align: center;
+  color: #777;
+  padding: 12px;
+}

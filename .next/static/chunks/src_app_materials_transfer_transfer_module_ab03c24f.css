@@ -1,0 +1,210 @@
+/* [project]/src/app/materials/transfer/transfer.module.css [app-client] (css) */
+.transfer-module__of4DdW__container {
+  background: #f8f9fa;
+  min-height: 100vh;
+  padding: 24px;
+  font-family: Inter, sans-serif;
+}
+
+.transfer-module__of4DdW__header {
+  z-index: 5;
+  background: #fff;
+  border-radius: 10px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 12px 20px;
+  display: flex;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+}
+
+.transfer-module__of4DdW__header h2 {
+  color: #333;
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.transfer-module__of4DdW__addBtn {
+  color: #fff;
+  cursor: pointer;
+  background: #007bff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-size: 15px;
+  transition: all .3s;
+  box-shadow: 0 2px 5px rgba(0, 123, 255, .2);
+}
+
+.transfer-module__of4DdW__addBtn:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
+.transfer-module__of4DdW__modalOverlay {
+  z-index: 999;
+  background: rgba(0, 0, 0, .45);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.transfer-module__of4DdW__modal {
+  background: #fff;
+  border-radius: 12px;
+  width: 95%;
+  max-width: 600px;
+  max-height: 90vh;
+  padding: 24px;
+  animation: .3s transfer-module__of4DdW__fadeIn;
+  overflow-y: auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+}
+
+@keyframes transfer-module__of4DdW__fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.transfer-module__of4DdW__formGrid {
+  gap: 12px;
+  margin-top: 10px;
+  display: grid;
+}
+
+.transfer-module__of4DdW__formGrid label {
+  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+}
+
+.transfer-module__of4DdW__formGrid input, .transfer-module__of4DdW__formGrid select, .transfer-module__of4DdW__formGrid textarea {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 14px;
+  transition: all .2s;
+}
+
+.transfer-module__of4DdW__formGrid input:focus, .transfer-module__of4DdW__formGrid select:focus, .transfer-module__of4DdW__formGrid textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, .15);
+}
+
+.transfer-module__of4DdW__sectionTitle {
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
+  margin-top: 10px;
+  padding-bottom: 4px;
+  font-weight: 600;
+}
+
+.transfer-module__of4DdW__submitBtn {
+  color: #fff;
+  cursor: pointer;
+  background: #28a745;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px 16px;
+  transition: all .3s;
+}
+
+.transfer-module__of4DdW__submitBtn:hover {
+  background: #218838;
+}
+
+.transfer-module__of4DdW__tableWrapper {
+  background: #fff;
+  border-radius: 10px;
+  margin-top: 24px;
+  overflow-x: auto;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .08);
+}
+
+.transfer-module__of4DdW__table {
+  border-collapse: collapse;
+  text-align: center;
+  width: 100%;
+}
+
+.transfer-module__of4DdW__table th {
+  color: #fff;
+  z-index: 1;
+  background: #007bff;
+  padding: 10px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.transfer-module__of4DdW__table td {
+  border-top: 1px solid #eee;
+  padding: 10px;
+}
+
+.transfer-module__of4DdW__empty {
+  text-align: center;
+  color: #999;
+  padding: 16px;
+}
+
+@media (max-width: 600px) {
+  .transfer-module__of4DdW__modal {
+    width: 95%;
+    padding: 16px;
+  }
+
+  .transfer-module__of4DdW__header h2 {
+    font-size: 18px;
+  }
+
+  .transfer-module__of4DdW__addBtn {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+}
+
+.transfer-module__of4DdW__modal {
+  position: relative;
+}
+
+.transfer-module__of4DdW__closeBtn {
+  color: #555;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  transition: all .2s;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.transfer-module__of4DdW__closeBtn:hover {
+  color: #000;
+  transform: scale(1.1);
+}
+
+/*# sourceMappingURL=src_app_materials_transfer_transfer_module_ab03c24f.css.map*/

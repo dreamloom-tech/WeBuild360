@@ -1,0 +1,807 @@
+/* ===================================================================
+   Dashboard CSS - All layout and component styles for the Dashboard.
+   This file contains styles for:
+   - sidebar (fixed)
+   - top navbar (fixed)
+   - collapsing sidebar behavior
+   - stats cards, social cards, charts, tables
+   Note: Replace chart placeholder with chart library and adjust sizing.
+   =================================================================== */
+
+/* Dashboard CSS (CSS Module) - no global selectors here. Uses variables from globals.css */
+
+/* layout wrapper (module-local) */
+.wrap {
+  display: flex;
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Sidebar (fixed) */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--sidebar-width);
+  background: linear-gradient(90deg, #0b2b3c 0%, #102c40 100%);
+  color: #fff;
+  padding: 20px 14px; /* slightly tighter */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
+  transition: width 0.18s ease, transform 0.18s ease, padding 0.18s ease;
+  overflow: hidden;
+}
+.sidebar.mobileOpen {
+  transform: translateX(0);
+}
+
+/* collapsed */
+.sidebar.collapsed {
+  width: var(--sidebar-collapsed-width);
+  padding: 18px 8px;
+}
+.profile {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.avatar,
+.topAvatar {
+  display: block;
+  width: 56px;
+  height: 56px;
+  max-width: 56px;
+  max-height: 56px;
+  object-fit: cover;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.sidebar.collapsed .avatar {
+  width: 40px;
+  height: 40px;
+  max-width: 40px;
+  max-height: 40px;
+}
+.profileInfo {
+  line-height: 1;
+}
+.name {
+  font-weight: 600;
+  font-size: 14px;
+}
+.status {
+  font-size: 12px;
+  color: #71d07f;
+  margin-top: 4px;
+}
+
+/* menu */
+.menu {
+  margin-top: 8px;
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 8px; /* avoid overflow under scrollbar */
+  -webkit-overflow-scrolling: touch;
+}
+.menuSection {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 12px 6px;
+  opacity: 0.9;
+}
+.menuItem {
+  margin: 6px 0;
+  display: block; /* block-level so link fills full width */
+  padding: 10px 8px;
+  color: rgba(255, 255, 255, 0.92);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  border-radius: 6px;
+  margin: 6px 2px;
+  cursor: pointer;
+  transition: background 0.12s ease, transform 0.12s ease;
+}
+.menuItem:hover {
+  background: rgba(255, 255, 255, 0.03);
+  transform: translateX(6px);
+}
+.icon {
+  width: 30px;
+  min-width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  opacity: 0.95;
+  flex-shrink: 0;
+}
+.menuText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1;
+}
+
+/* hide text when collapsed */
+.sidebar.collapsed .profileInfo,
+.sidebar.collapsed .menuSection,
+.sidebar.collapsed .sidebarFooter,
+.sidebar.collapsed .menuText {
+  display: none;
+}
+.sidebar.collapsed .menuItem {
+  justify-content: center;
+  padding: 12px 6px;
+}
+
+/* footer */
+.sidebarFooter {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 12px;
+}
+
+/* Topbar (fixed) */
+.topbar {
+  position: fixed;
+  top: 0; /* <-- ensure the bar is pinned to the top of the viewport */
+  left: var(--sidebar-width);
+  right: 0;
+  height: var(--topbar-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #0b2b3c 0%, #102c40 100%);
+  color: #fff;
+  padding: 0 18px;
+  box-shadow: 0 2px 6px rgba(16, 40, 60, 0.06);
+  z-index: 900;
+  transition: left 0.18s ease;
+}
+.topbar.collapsed {
+  left: var(--sidebar-collapsed-width);
+}
+
+.topLeft {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.hamburger {
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  /* border-radius: 6px; */
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  font-size: 18px;
+  display: inline-flex;
+  margin-left: -16px;
+}
+
+/* .hamburger {
+  font-size: 18px;
+  background: var(--primary);
+  color: #000;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+} */
+.logo {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-left: 6px;
+}
+.logoIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  background: linear-gradient(#2eb0ff, #0077b4);
+}
+.brand {
+  font-weight: 700;
+  font-size: 18px;
+  color: #fff;
+}
+
+/* right area */
+.topRight {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.iconGroup {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-right: 8px;
+}
+.user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* background: rgba(255, 255, 255, 0.04); */
+  padding: 6px 10px;
+  /* border-radius: 22px; */
+}
+
+/* Main wrapper / content */
+.mainWrapper {
+  margin-top: var(--topbar-height);
+  margin-left: var(--sidebar-width);
+  padding: 22px;
+  transition: margin-left 0.18s ease, padding 0.18s ease;
+  min-height: calc(100vh - var(--topbar-height));
+  background: #ffffff;
+  box-sizing: border-box;
+}
+.mainWrapper.collapsed {
+  margin-left: var(--sidebar-collapsed-width);
+}
+
+/* center page content and constrain width for readability */
+.container {
+  max-width: var(--page-max-width);
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* page title */
+.pageTitle {
+  font-size: 20px;
+  color: #263238;
+  margin: 6px 0 18px 0;
+  font-weight: 600;
+}
+
+/* Stats / social / chart - responsive */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 18px;
+}
+@media (max-width: 1100px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+.statCard {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+}
+.statIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: #fff;
+}
+.statValue {
+  font-size: 18px;
+  font-weight: 700;
+  color: #394a57;
+}
+.statLabel {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* social grid */
+.socialGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 12px;
+  margin-bottom: 18px;
+}
+@media (max-width: 1100px) {
+  .socialGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .socialGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* charts */
+.chartCard {
+  margin-top: 18px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  padding: 18px;
+}
+.cardHeader {
+  font-weight: 600;
+  color: #2d3b45;
+  margin-bottom: 12px;
+}
+.chartArea {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+.chartBox {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: var(--card-shadow);
+  box-sizing: border-box;
+  overflow: hidden; /* important to stop canvas overflow */
+}
+
+/* main large chart area (two-column layout) */
+.chartBox.half {
+  flex: 1 1 66%;
+  min-width: 420px;
+  min-height: 360px; /* gives canvas room and prevents scaling overlap */
+}
+
+/* side panel with table */
+.chartBox.side {
+  flex: 0 0 300px;
+  min-height: 360px;
+}
+
+/* full-width chart variant */
+.chartBox.full {
+  width: 100%;
+  min-height: 360px;
+}
+
+/* ensure canvas fills container and keeps aspect ratio via container size */
+.chartBox canvas {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* responsive: stack on narrow screens */
+@media (max-width: 900px) {
+  .chartBox.half,
+  .chartBox.side,
+  .chartBox.full {
+    flex: 1 1 100%;
+    min-width: 0;
+    min-height: 300px;
+  }
+}
+
+/* overlay for mobile drawer */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 950;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+.overlay.show {
+  display: block;
+  opacity: 1;
+}
+
+/* mobile/drawer mode */
+@media (max-width: 1100px) {
+  .sidebar {
+    transform: translateX(-110%);
+    width: 260px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+  }
+  .sidebar.mobileOpen {
+    transform: translateX(0);
+  }
+  .topbar {
+    left: 0 !important;
+  }
+  .mainWrapper {
+    margin-left: 0 !important;
+    padding: 12px;
+  }
+  .mobileClose {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    color: #fff;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  .profileInfo {
+    display: none;
+  }
+}
+
+/* small screens */
+@media (max-width: 420px) {
+  .hamburger {
+    width: 40px;
+    height: 40px;
+  }
+  .statIcon {
+    width: 48px;
+    height: 48px;
+  }
+  .statValue {
+    font-size: 16px;
+  }
+}
+
+/* -------------------- Sidebar / Menu - improved -------------------- */
+/* Sidebar container adjustments (keep existing width/padding vars) */
+.sidebar {
+  /* ...existing sidebar styles ... */
+  padding: 20px 14px; /* slightly tighter */
+  overflow: hidden;
+}
+
+/* ensure the menu area scrolls independently and doesn't push layout */
+.menu {
+  margin-top: 8px;
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 8px; /* avoid overflow under scrollbar */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* reset list */
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* each menu item wraps a link or a button */
+.menuItem {
+  margin: 6px 0;
+  display: block; /* block-level so link fills full width */
+}
+
+/* links inside menu: reset native styles and align content */
+.menu a,
+.menuButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.12s ease, transform 0.08s ease;
+}
+
+/* remove transform jump on hover and keep subtle background */
+.menu a:hover,
+.menuButton:hover {
+  background: rgba(255, 255, 255, 0.03);
+  transform: none;
+}
+
+/* icon box */
+.icon {
+  width: 30px;
+  min-width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  opacity: 0.95;
+  flex-shrink: 0;
+}
+
+/* readable label */
+.menuText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1;
+}
+
+/* submenu styling (indented, lighter, no boxed buttons) */
+.submenu {
+  margin: 6px 0 0 6px;
+  padding-left: 6px;
+  border-left: 2px solid rgba(255, 255, 255, 0.02);
+}
+.submenu .menuItem {
+  margin: 6px 0;
+}
+.submenu a {
+  padding: 8px 12px;
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 13px;
+}
+
+/* Submenu icon adjustments */
+.submenu .icon {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  opacity: 0.85;
+  margin-right: 8px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Slightly smaller text for submenu items */
+.submenu .menuText {
+  font-size: 13px;
+}
+
+/* active / selected state */
+.active > a,
+.menuItem.active {
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: inset 4px 0 0 var(--primary);
+  color: #fff;
+}
+
+/* collapsed sidebar: hide text and center icons */
+.sidebar.collapsed .menuText,
+.sidebar.collapsed .menuSection,
+.sidebar.collapsed .profileInfo,
+.sidebar.collapsed .sidebarFooter {
+  display: none;
+}
+.sidebar.collapsed .menu a,
+.sidebar.collapsed .menuButton {
+  justify-content: center;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+/* mobile drawer: when open, ensure visible and no extra margins */
+.sidebar.mobileOpen {
+  transform: translateX(0);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* small scrollbar styling (non-critical) */
+.menu::-webkit-scrollbar {
+  width: 8px;
+}
+.menu::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+}
+
+/* accessibility focus */
+.menu a:focus,
+.menuButton:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.08);
+  outline-offset: 2px;
+}
+
+/* ensure submenu toggles (button caret) align right */
+.menuButton > span.caret {
+  margin-left: auto;
+  opacity: 0.9;
+  font-size: 12px;
+}
+
+/* menu button / caret using SVG icon */
+.menuButton {
+  background: transparent;
+  border: none;
+  width: 100%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+.menuButton .menuText {
+  margin-left: 6px;
+}
+
+.caret {
+  margin-left: auto;
+  transition: transform 0.18s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+}
+
+/* rotate chevron when expanded */
+.menuButton[aria-expanded="true"] .caret {
+  transform: rotate(90deg);
+}
+
+/* ensure SVG icons inside .icon scale correctly */
+.icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+/* submenu icon smaller */
+.submenu .icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* remove hover background and transform for menu links/buttons */
+.menu a:hover,
+.menuButton:hover {
+  background: transparent !important;
+  transform: none !important;
+}
+
+/* remove active/selected background and box-shadow */
+.active > a,
+.menuItem.active,
+.menuItem.active > a {
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #fff !important;
+}
+
+/* keep caret pinned to the right (no layout shift) */
+.menuLink,
+.menuButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* ensure icon sizes remain consistent */
+.icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+.submenu .icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* flyout used when collapsed sidebar is open */
+.flyout {
+  position: fixed;
+  left: var(
+    --sidebar-collapsed-width
+  ); /* aligns to right edge of collapsed sidebar */
+  width: 240px;
+  background: #fff;
+  color: #233142;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(16, 40, 60, 0.16);
+  padding: 8px;
+  z-index: 1200;
+  transform-origin: left top;
+}
+
+/* flyout submenu items use same submenu styles but on light background */
+.flyout .submenu {
+  border-left: none;
+  margin: 0;
+  padding: 6px 0;
+}
+.flyout .menuItem {
+  margin: 0;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+.flyout .menuItem a {
+  color: inherit;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  text-decoration: none;
+}
+
+/* caret: down by default, rotates when aria-expanded true */
+.caret {
+  margin-left: 12px;
+  transition: transform 0.18s ease;
+  color: rgba(255, 255, 255, 0.9);
+  display: inline-flex;
+  align-items: center;
+}
+.menuButton[aria-expanded="true"] .caret {
+  transform: rotate(180deg);
+}
+
+/* always show caret even in collapsed mode (keeps consistent UX) */
+.sidebar.collapsed .caret {
+  display: inline-flex;
+}
+
+/* remove hover/active background from main sidebar items (user requested) */
+.menu a:hover,
+.menuButton:hover,
+.menuItem.active,
+.menuItem.active > a {
+  background: transparent !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ensure icon sizes for flyout (dark sidebar uses white icons, flyout uses SVG scaled) */
+.icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+.flyout .icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* small responsive tweak: if viewport too small, position flyout absolute under topbar */
+@media (max-width: 600px) {
+  .flyout {
+    left: 0;
+    right: 0;
+    width: auto;
+    margin: 0 12px;
+  }
+}
