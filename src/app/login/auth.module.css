@@ -1,0 +1,104 @@
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: 24px;
+}
+
+.box {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.box h2 {
+  margin: 0 0 12px;
+}
+
+.box label {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.box input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ddd;
+
+}
+
+.passwordInput {
+  position: relative;
+  margin-top: 6px;
+}
+
+.passwordInput input {
+  margin-top: 0;
+  padding-right: 35px;
+}
+
+.showPassword {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.showPassword:hover {
+  color: #333;
+}
+
+.showPassword svg {
+  width: 16px;
+  height: 16px;
+}
+
+.submit {
+  margin-top: 16px;
+  width: 100%;
+  padding: 10px;
+  background: #2b9af3;
+  color: #fff;
+  border: none;
+  
+}
+
+.error {
+  background: #ffe6e6;
+  color: #b30b0b;
+  padding: 8px;
+  
+  margin-bottom: 8px;
+}
+
+.linkRow {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+@media (max-width: 480px) {
+  .box {
+    padding: 12px;
+    
+  }
+
+  .wrap {
+    padding: 12px;
+  }
+}

@@ -37,7 +37,7 @@
   border: none;
   padding: 8px 12px;
   cursor: pointer;
-  border-radius: 6px;
+  
   transition: background 0.3s;
 }
 
@@ -62,7 +62,7 @@
 .modal {
   background: #fff;
   padding: 24px;
-  border-radius: 10px;
+  
   width: 400px;
   max-width: 90%;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
@@ -87,7 +87,7 @@
 .input {
   width: 100%;
   padding: 8px 10px;
-  border-radius: 6px;
+  
   border: 1px solid #ccc;
   font-size: 14px;
 }
@@ -102,7 +102,7 @@
   background-color: #750c0c;
   color: #fff;
   padding: 8px 16px;
-  border-radius: 6px;
+  
   border: none;
   cursor: pointer;
 }
@@ -115,7 +115,7 @@
   background-color: #ccc;
   color: #333;
   padding: 8px 16px;
-  border-radius: 6px;
+  
   border: none;
   cursor: pointer;
 }
@@ -123,3 +123,15 @@
 .cancelBtn:hover {
   background-color: #999;
 }
+
+.iconBtn {
+  background: transparent;
+  border: 1px solid #ddd;
+  
+  padding: 6px 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.iconBtn:hover { background: #f4f4f4; }

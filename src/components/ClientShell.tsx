@@ -3,12 +3,17 @@ import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 import styles from '../app/dashboard/dashboard.module.css';
+import { usePathname } from 'next/navigation';
 
 type Props = { children: React.ReactNode };
 
 export default function ClientShell({ children }: Props) {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+  
+  // Hide navigation on auth pages
+  const isAuthPage = pathname === '/login' || pathname === '/register';
 
   const toggleSidebar = () => setCollapsed(c => !c);
   const toggleMobile = () => setMobileOpen(v => !v);
@@ -16,13 +21,17 @@ export default function ClientShell({ children }: Props) {
 
   return (
     <div>
-      <Sidebar collapsed={collapsed} mobileOpen={mobileOpen} onClose={closeMobile} />
 
-      <Navbar
-        collapsed={collapsed}
-        onToggle={toggleSidebar}
-        onMobileToggle={toggleMobile}
-      />
+      {!isAuthPage && (
+        <>
+          <Navbar
+            collapsed={collapsed}
+            onToggle={toggleSidebar}
+            onMobileToggle={toggleMobile}
+          />
+          <Sidebar collapsed={collapsed} mobileOpen={mobileOpen} onClose={closeMobile} />
+        </>
+      )}
 
       <div
         className={mobileOpen ? `${styles.overlay} ${styles.show}` : styles.overlay}

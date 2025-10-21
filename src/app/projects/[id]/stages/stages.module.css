@@ -1,0 +1,126 @@
+.container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.header h2 {
+  font-size: 24px;
+  color: #1a1a1a;
+}
+
+.projectValue {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.stagesGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.stageRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: white;
+  
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stageInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stageInfo h3 {
+  font-size: 18px;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.estimation {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.estimation input {
+  width: 120px;
+  padding: 8px;
+  border: 1px solid #e5e7eb;
+  
+  font-size: 16px;
+  text-align: right;
+}
+
+.stageStatus {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.statusBadge {
+  padding: 6px 12px;
+  
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.statusBadge:global(.onProgress) {
+  background: #8b5cf6;
+  color: white;
+}
+
+.statusBadge:global(.completed) {
+  background: #10b981;
+  color: white;
+}
+
+.statusBadge:global(.notStarted) {
+  background: #00bcd4;
+  color: white;
+}
+
+.nextStageBtn {
+  padding: 8px 16px;
+  background: #8b5cf6;
+  color: white;
+  border: none;
+  
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.nextStageBtn:hover {
+  background: #7c3aed;
+}
+
+.updateBtn {
+  padding: 12px;
+  background: #8b5cf6;
+  color: white;
+  border: none;
+  
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.updateBtn:hover {
+  background: #7c3aed;
+}

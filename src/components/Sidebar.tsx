@@ -49,6 +49,14 @@ export default function Sidebar({ collapsed = false, mobileOpen = false, onClose
 
   const handleLink = () => { if (mobileOpen) onClose?.(); };
 
+  const handleLogout = () => {
+    // Clear any auth tokens or user data from localStorage
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    // Redirect to login page
+    window.location.href = '/login';
+  };
+
   const openFlyoutFor = (key: string, e: React.MouseEvent) => {
     if (!collapsed) return;
     const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
@@ -199,7 +207,13 @@ export default function Sidebar({ collapsed = false, mobileOpen = false, onClose
         </ul>
       </nav>
 
-      <div className={styles.sidebarFooter}>© WeBuild360</div>
+      <div className={styles.sidebarFooter}>
+        <button onClick={handleLogout} className={styles.logoutButton}>
+          <span className={styles.icon}><FaArrowDown /></span>
+          <span className={styles.menuText}>Logout</span>
+        </button>
+        <div className={styles.copyright}>© WeBuild360</div>
+      </div>
 
       {/* collapsed-mode flyout (render outside main DOM flow for position) */}
       {collapsed && flyout?.key && (

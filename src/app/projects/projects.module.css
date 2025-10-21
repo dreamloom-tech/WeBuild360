@@ -20,17 +20,17 @@
 
 .addButton {
   padding: 10px 16px;
-  background-color: #007bff;
+  background-color: #6d28d9;
   color: #fff;
   border: none;
-  border-radius: 6px;
+  
   font-size: 14px;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
 .addButton:hover {
-  background-color: #0056b3;
+  background-color: #5b21b6;
 }
 
 .modalOverlay {
@@ -49,7 +49,7 @@
 .modalContent {
   width: 600px;
   background: #fff;
-  border-radius: 8px;
+  
   padding: 24px;
   position: relative;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);

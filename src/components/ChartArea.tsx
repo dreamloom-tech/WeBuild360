@@ -16,8 +16,10 @@ import styles from '../app/dashboard/dashboard.module.css';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, LineElement, PointElement, Tooltip, Legend, Title);
 
+type ChartPoint = { name: string; value: number };
+
 type Props = {
-  barData: any;
+  barData?: ChartPoint[] | { labels: string[]; datasets: any[] };
   barOptions?: any;
 };
 
@@ -44,11 +46,34 @@ export default function ChartArea({ barData, barOptions }: Props) {
     },
   };
 
+  // normalize incoming data to chart.js format
+  const normalized = (() => {
+    if (!barData) return null;
+    if (Array.isArray(barData)) {
+      return {
+        labels: (barData as ChartPoint[]).map((d) => d.name),
+        datasets: [
+          {
+            label: 'Amount',
+            data: (barData as ChartPoint[]).map((d) => d.value),
+            backgroundColor: '#4caf50',
+          },
+        ],
+      };
+    }
+    // assume it's already chart.js data shape
+    return barData as { labels: string[]; datasets: any[] };
+  })();
+
   return (
     <div className={styles.chartArea}>
       <div className={`${styles.chartBox} ${styles.full}`}>
         <div style={{ height: 360 }}>
-          <Bar data={barData} options={{ ...defaultOptions, ...barOptions }} />
+          {normalized ? (
+            <Bar data={normalized} options={{ ...defaultOptions, ...barOptions }} />
+          ) : (
+            <div style={{ padding: 24 }}>No chart data available</div>
+          )}
         </div>
       </div>
     </div>

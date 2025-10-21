@@ -44,4 +44,68 @@ img[src*="profile"] {
   display: inline-block;
 }
 
+/* Theme support for dark mode */
+[data-theme='dark'] {
+  --bg: #18181b;
+  --fg: #f3f4f6;
+  --border: #27272a;
+  --primary: #6366f1;
+  --primary-dark: #4338ca;
+  --danger: #ef4444;
+  --danger-bg: #fef2f2;
+  --success: #059669;
+  --success-bg: #f0fdf4;
+  --modal-bg: #23232a;
+  --modal-fg: #f3f4f6;
+}
+
+body, .navbar {
+  background: var(--bg, white);
+  color: var(--fg, #18181b);
+}
+
+.navbar {
+  background: var(--bg, white);
+  color: var(--fg, #18181b);
+}
+
+.modalContent {
+  background: var(--modal-bg, white);
+  color: var(--modal-fg, #18181b);
+}
+
+.input, .input:focus, .input:disabled {
+  background: var(--bg, #f9fafb);
+  color: var(--fg, #18181b);
+  border-color: var(--border, #e5e7eb);
+}
+
+.buttonPrimary {
+  background: var(--primary, #4f46e5);
+  color: white;
+}
+
+.buttonPrimary:hover {
+  background: var(--primary-dark, #4338ca);
+}
+
+.logoutButton {
+  color: var(--danger, #dc2626);
+}
+
+.logoutButton:hover {
+  background: var(--danger-bg, #fef2f2);
+  color: var(--danger, #dc2626);
+}
+
+.successText {
+  background: var(--success-bg, #f0fdf4);
+  color: var(--success, #059669);
+}
+
+.errorText {
+  background: var(--danger-bg, #fef2f2);
+  color: var(--danger, #dc2626);
+}
+
 

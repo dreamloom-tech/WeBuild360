@@ -1,0 +1,189 @@
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 24px;
+}
+
+.projectCard {
+  background: white;
+  
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cardHeader h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.editButton,
+.deleteButton {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.editButton {
+  color: #4f46e5;
+}
+
+.deleteButton {
+  color: #ef4444;
+}
+
+.editButton:hover {
+  background: #eef2ff;
+}
+
+.deleteButton:hover {
+  background: #fef2f2;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detail {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.label {
+  color: #666;
+}
+
+.cardFooter {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+.progressBar {
+  height: 8px;
+  background: #f3f4f6;
+  
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: #4f46e5;
+  transition: width 0.3s ease;
+}
+
+.progressText {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.status {
+  align-self: flex-start;
+  padding: 4px 8px;
+  
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.active {
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.completed {
+  background: #eff6ff;
+  color: #3b82f6;
+}
+
+.on-hold {
+  background: #fef2f2;
+  color: #ef4444;
+}
+
+.detailsLink {
+  color: #8b5cf6;
+  text-decoration: none !important;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 24px;
+  border: 2px solid #8b5cf6;
+  
+  transition: all 0.2s ease;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.detailsLink:hover {
+  color: white;
+  background: #8b5cf6;
+}
+
+.cardFooter {
+  align-items: center;
+  justify-content: center;
+}
+
+.cardFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+.stageInfo {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.stageLabel {
+  color: #666;
+}
+
+.stageName {
+  color: #333;
+}
+
+.detailsLink {
+  color: #8b5cf6;
+  text-decoration: none !important;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 24px;
+  border: 2px solid #8b5cf6;
+  
+  transition: all 0.2s ease;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.detailsLink:hover {
+  color: white;
+  background: #8b5cf6;
+}

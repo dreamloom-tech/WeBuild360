@@ -1,0 +1,362 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* ensures left and right alignment */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.hamburger {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: margin-left 0.3s ease;
+  border: 1px solid transparent;
+  background-color: #0782b2;
+  color: #fff;
+}
+
+/* Default for large screens */
+.hamburgerShift {
+  margin-left: 250px;
+}
+
+.hamburgerCollapsed {
+  margin-left: 80px;
+}
+
+@media (max-width: 768px) {
+  /* Styles for mobile and small tablets */
+  .hamburgerShift {
+    margin-left: 20px;
+  }
+
+  .hamburgerCollapsed {
+    margin-left: 10px;
+  }
+
+  /* Optional: Adjust font sizes, padding, layout */
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+
+  .profileInfo {
+    display: none; /* hide extra info if needed */
+  }
+}
+@media (min-width: 773px) and (max-width: 1012px) {
+  .hamburgerShift {
+    margin-left: 180px; /* Adjust as needed for your layout */
+  }
+
+  .hamburgerCollapsed {
+    margin-left: 60px; /* Adjust as needed for collapsed sidebar */
+  }
+}
+
+
+.profile {
+  position: relative;
+}
+
+.profileTrigger {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 2px solid transparent;
+}
+
+.profileTrigger:hover {
+  background: #f3f4f6;
+  border-color: #e5e7eb;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+}
+
+.profileInfo {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .profileInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.profileName {
+  font-weight: 600;
+  color: #111827;
+  font-size: 0.875rem;
+}
+
+.profileEmail {
+  color: #6b7280;
+  font-size: 0.75rem;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background: white;
+  
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  min-width: 240px;
+  padding: 0.5rem;
+  border: 1px solid #e5e7eb;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s;
+}
+
+.dropdownOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdownHeader {
+  padding: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 0.5rem;
+}
+
+.dropdownName {
+  font-weight: 600;
+  color: #111827;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.dropdownEmail {
+  color: #6b7280;
+  font-size: 0.75rem;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  color: #374151;
+  font-size: 0.875rem;
+  width: 100%;
+  
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  background: transparent;
+  text-align: left;
+}
+
+.dropdownItem:hover {
+  background: #f3f4f6;
+  color: #4f46e5;
+}
+
+.dropdownItem svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.dropdownDivider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 0.5rem 0;
+}
+
+.logoutButton {
+  color: #dc2626;
+}
+
+.logoutButton:hover {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 1rem;
+}
+
+.modalContent {
+  background: white;
+  
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+  overflow: hidden;
+}
+
+.modalHeader {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modalTitle {
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: #111827;
+}
+
+.modalClose {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  background: transparent;
+}
+
+.modalClose:hover {
+  background: #f3f4f6;
+}
+
+.modalBody {
+  padding: 1.5rem;
+}
+
+.inputGroup {
+  margin-bottom: 1.5rem;
+}
+
+.inputLabel {
+  display: block;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  
+  font-size: 1rem;
+  transition: all 0.2s;
+  background: #f9fafb;
+}
+
+.input:hover {
+  border-color: #d1d5db;
+  background: white;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #4f46e5;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.passwordInput {
+  position: relative;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.passwordToggle:hover {
+  color: #374151;
+}
+
+.modalFooter {
+  padding: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  background: #f9fafb;
+}
+
+.button {
+  padding: 0.75rem 1.5rem;
+  
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  border: none;
+}
+
+.buttonPrimary {
+  background: #4f46e5;
+  color: white;
+  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.1);
+}
+
+.buttonPrimary:hover {
+  background: #4338ca;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
+}
+
+.buttonSecondary {
+  background: white;
+  color: #374151;
+  border: 2px solid #e5e7eb;
+}
+
+.buttonSecondary:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+}

@@ -19,10 +19,10 @@
 
 .addButton {
   padding: 10px 16px;
-  background-color: #007bff;
+  background-color: #6d28d9;
   color: #fff;
   border: none;
-  border-radius: 6px;
+  
   font-size: 14px;
   cursor: pointer;
   transition: background 0.3s ease;
@@ -45,7 +45,197 @@
   z-index: 1000;
 }
 
-/* .modalContent {
-  background: white;
-  padding: 2rem;
-} */
+
+/* ==== Container ==== */
+.container {
+  width: 100%;
+  padding: 20px;
+  background: #ffffff;
+}
+
+/* ==== Header ==== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 24px;
+}
+
+.header h2 {
+  font-size: clamp(20px, 4vw, 24px);
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+/* ==== Add / Transfer button ==== */
+.addBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #0399bd;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.addBtn:hover {
+  background: #0277a3;
+  transform: translateY(-1px);
+}
+
+/* ==== Table ==== */
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 760px;
+}
+
+.table th {
+  background: #f8f9fa;
+  color: #333;
+  font-weight: 600;
+  padding: 14px 16px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 2px solid #e0e0e0;
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 12px 16px;
+  color: #444;
+  font-size: 14px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #ffffff;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.actionButton {
+  background: none;
+  border: none;
+  color: #0399bd;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background 0.18s;
+}
+.actionButton:hover {
+  background: #e6f7fa;
+}
+
+/* ==== Modal ==== */
+.modal {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  padding: 32px 36px 28px 36px;
+  min-width: 340px;
+  max-width: 420px;
+  margin: 60px auto;
+  position: relative;
+  animation: fadeInModal 0.25s ease;
+}
+.closeBtn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: #888;
+  cursor: pointer;
+}
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-top: 18px;
+}
+.formGrid label {
+  font-size: 0.98rem;
+  color: #333;
+  margin-bottom: 4px;
+}
+.formGrid input,
+.formGrid select,
+.formGrid textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  font-size: 15px;
+  background: #f8fafc;
+  color: #222;
+  margin-top: 2px;
+}
+.formGrid textarea {
+  min-height: 48px;
+  resize: vertical;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+.submitBtn {
+  background: #0399bd;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  font-size: 15px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.submitBtn:hover {
+  background: #0277a3;
+}
+.span-2 {
+  grid-column: span 2;
+}
+.toast {
+  position: fixed;
+  top: 24px;
+  right: 32px;
+  background: #fff;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  padding: 16px 28px;
+  font-size: 15px;
+  z-index: 2000;
+  border-left: 5px solid #0399bd;
+  animation: fadeInModal 0.2s;
+}
+.toast.success {
+  border-left-color: #2ecc71;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}

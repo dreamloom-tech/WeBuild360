@@ -3,7 +3,7 @@
   margin: 40px auto;
   padding: 24px;
   background: #fff;
-  border-radius: 16px;
+  
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   font-family: "Inter", sans-serif;
 } */
@@ -26,7 +26,7 @@
 .formBox {
   background: #fafafa;
   border: 1px solid #eee;
-  /* border-radius: 12px; */
+  /*  */
   padding: 20px;
   margin-bottom: 28px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
@@ -42,7 +42,7 @@
 .formGrid input,
 .formGrid select {
   padding: 10px 14px;
-  /* border-radius: 8px; */
+  /*  */
   border: 1px solid #ccc;
   outline: none;
   font-size: 14px;
@@ -60,7 +60,7 @@
   color: #fff;
   border: none;
   padding: 10px 16px;
-  /* border-radius: 8px; */
+  /*  */
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
@@ -73,7 +73,7 @@
 .previewBox {
   margin-top: 30px;
   background: #f9fafc;
-  /* border-radius: 12px; */
+  /*  */
   padding: 16px 20px;
   border: 1px solid #e0e0e0;
 }
@@ -93,7 +93,7 @@
 .dataSection li {
   background: #fff;
   padding: 8px 12px;
-  /* border-radius: 8px; */
+  /*  */
   margin-bottom: 8px;
   border: 1px solid #eee;
   font-size: 14px;
@@ -147,7 +147,7 @@
   color: #fff;
   border: none;
   padding: 6px 12px;
-  /* border-radius: 6px; */
+  /*  */
   cursor: pointer;
   font-size: 13px;
   transition: background 0.3s;
@@ -161,4 +161,45 @@
 .pagination span {
   font-size: 13px;
   color: #555;
+}
+
+.error {
+  background-color: #fee2e2;
+  color: #dc2626;
+  padding: 12px;
+  
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.deleteBtn {
+  padding: 6px 12px;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s;
+}
+
+.deleteBtn:hover {
+  background-color: #dc2626;
+}
+
+.deleteBtn:disabled {
+  background-color: #fca5a5;
+  cursor: not-allowed;
+}
+
+/* Add styles for disabled form buttons */
+.formGrid button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Update loading text color */
+tr td.emptyRow {
+  color: #6b7280;
+  font-style: italic;
 }
