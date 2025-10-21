@@ -1,0 +1,83 @@
+# =====================================
+# ✅ NEXT.JS + NODE (MERN-Integrated)
+# =====================================
+
+# Node modules
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Build / Output folders
+.next/
+dist/
+build/
+.cache/
+out/
+client/dist/
+client/build/
+
+# Environment variables
+.env
+.env.*
+!.env.example  # keep example env file in repo for reference
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+*.log
+
+# OS / System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# TypeScript build info
+tsconfig.tsbuildinfo
+*.tsbuildinfo
+
+# IDE / Editor configs
+.vscode/
+.idea/
+*.swp
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Testing / Coverage
+coverage/
+*.lcov
+
+# Cache and temporary files
+.tmp/
+temp/
+tmp/
+*.tmp
+*.bak
+
+# Local database / uploaded files
+uploads/
+mongodb-data/
+*.sqlite
+*.db
+
+# PM2 / Process manager logs
+pids/
+*.pid
+*.seed
+
+# Package manager lock files (optional, comment if using team CI)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# =====================================
+# MISC
+# =====================================
+.history/
+.vscode-test/
+firebase-debug.log
+aws-exports.js
