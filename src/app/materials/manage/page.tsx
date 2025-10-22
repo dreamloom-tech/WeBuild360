@@ -64,8 +64,12 @@ export default function ManageStockPage() {
         if (eventType === 'Return') setReturns((r) => [...r, json]);
         setTransactions((t) => [...t, json]);
         setShowPopup(false);
+        // show success message similar to other actions
+        setStatusMessage({ text: `${eventType} recorded successfully`, type: 'success' });
+        setTimeout(() => setStatusMessage(null), 3000);
       } catch (err: any) {
-        alert(err.message || 'Error');
+        setStatusMessage({ text: err.message || 'Error', type: 'error' });
+        setTimeout(() => setStatusMessage(null), 4000);
       }
     })();
     setForm({

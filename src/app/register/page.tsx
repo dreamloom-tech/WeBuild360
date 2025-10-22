@@ -68,6 +68,9 @@ export default function RegisterPage() {
         <button className={styles.submit}>Register</button>
         <div className={styles.linkRow}>Already have an account? <a href="/login">Login</a></div>
       </form>
+      <div className={styles.copyright}>
+        © {new Date().getFullYear()} SDL CREATIVE GROUPS - <a href="https://www.sdlcreativegroups.com/" target="_blank" rel="noopener noreferrer">www.sdlcreativegroups.com</a>
+      </div>
     </div>
   );
 }

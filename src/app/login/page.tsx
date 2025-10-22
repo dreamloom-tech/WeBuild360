@@ -51,6 +51,9 @@ export default function LoginPage() {
         <button className={styles.submit}>Login</button>
         <div className={styles.linkRow}>Need an account? <a href="/register">Register</a></div>
       </form>
+      <div className={styles.copyright}>
+        © {new Date().getFullYear()} SDL CREATIVE GROUPS - <a href="https://www.sdlcreativegroups.com/" target="_blank" rel="noopener noreferrer">www.sdlcreativegroups.com</a>
+      </div>
     </div>
   );
 }

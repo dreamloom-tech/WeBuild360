@@ -8,7 +8,8 @@ export async function PUT(req: Request) {
     const token = auth.split(' ')[1];
     if (!token) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     const payload: any = verifyToken(token as string);
-    const { name, avatar, mobile, address } = await req.json();
+  const { name, avatar, mobile, address } = await req.json();
+  console.log('/api/auth/update called for user', payload.sub, 'with', { name, avatar, mobile, address });
     const { db } = await connectToDatabase();
     const users = db.collection('users');
     const ObjectId = require('mongodb').ObjectId;
@@ -26,8 +27,9 @@ export async function PUT(req: Request) {
       { _id: user._id },
       { $set: update }
     );
-    const updated = await users.findOne({ _id: user._id });
-    return NextResponse.json({ ok: true, user: { id: updated._id.toString(), name: updated.name, avatar: updated.avatar || null, username: updated.username, mobile: updated.mobile || null, address: updated.address || null } });
+  const updated = await users.findOne({ _id: user._id });
+  console.log('user updated in DB, avatar=', updated.avatar);
+  return NextResponse.json({ ok: true, user: { id: updated._id.toString(), name: updated.name, avatar: updated.avatar || null, username: updated.username, mobile: updated.mobile || null, address: updated.address || null } });
   } catch (err: any) {
     return NextResponse.json({ error: err.message || 'Server error' }, { status: 500 });
   }

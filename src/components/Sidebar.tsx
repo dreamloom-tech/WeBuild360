@@ -199,8 +199,6 @@ export default function Sidebar({ collapsed = false, mobileOpen = false, onClose
             {!collapsed && openSettings && (
               <ul className={styles.submenu}>
                 <li className={styles.menuItem}><Link href="/settings/categories" onClick={handleLink}><span className={styles.icon}><FaBook/></span><span className={styles.menuText}>Categories</span></Link></li>
-                <li className={styles.menuItem}><Link href="/settings/company" onClick={handleLink}><span className={styles.icon}><FaBuilding/></span><span className={styles.menuText}>Company</span></Link></li>
-                <li className={styles.menuItem}><Link href="/settings/subscription" onClick={handleLink}><span className={styles.icon}><FaBell/></span><span className={styles.menuText}>Subscription</span></Link></li>
               </ul>
             )}
           </li>
@@ -250,8 +248,6 @@ export default function Sidebar({ collapsed = false, mobileOpen = false, onClose
           {flyout.key === 'settings' && (
             <ul className={styles.submenu}>
               <li className={styles.menuItem}><Link href="/settings/categories" onClick={handleLink}><span className={styles.icon}><FaBook/></span><span className={styles.menuText}>Categories</span></Link></li>
-              <li className={styles.menuItem}><Link href="/settings/company" onClick={handleLink}><span className={styles.icon}><FaBuilding/></span><span className={styles.menuText}>Company</span></Link></li>
-              <li className={styles.menuItem}><Link href="/settings/subscription" onClick={handleLink}><span className={styles.icon}><FaBell/></span><span className={styles.menuText}>Subscription</span></Link></li>
             </ul>
           )}
         </div>

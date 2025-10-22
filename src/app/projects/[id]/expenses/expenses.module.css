@@ -1,0 +1,292 @@
+.container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+.backLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #0782b2;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  color: #111827;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.summaryCard {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.summaryCard h3 {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.amount {
+  font-size: 24px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.positive {
+  color: #059669;
+}
+
+.negative {
+  color: #dc2626;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 1px;
+}
+
+.tab {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  color: #6b7280;
+  font-size: 14px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.tab:hover {
+  color: #111827;
+}
+
+.tab.active {
+  color: #0782b2;
+  border-bottom-color: #0782b2;
+}
+
+.expenseList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.categorySection {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.categoryHeader {
+  padding: 16px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.categoryHeader h2 {
+  margin: 0;
+  font-size: 16px;
+  color: #111827;
+}
+
+.categoryTotal {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.items {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.expenseItem {
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 12px;
+  background: #ffffff;
+}
+
+.expenseHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.expenseInfo {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.itemName {
+  font-weight: 500;
+  color: #111827;
+}
+
+.quantity {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.expenseAmount {
+  font-weight: 600;
+  color: #111827;
+}
+
+.expenseDetails {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.date {
+  color: #6b7280;
+}
+
+.description {
+  color: #4b5563;
+}
+
+/* Material Usage Styles */
+.materialUsage {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.materialUsage h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.materialCard {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.materialHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.materialHeader h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #111827;
+}
+
+.quantities {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.remaining {
+  font-weight: 500;
+  color: #111827;
+}
+
+.materialCosts {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  color: #6b7280;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.netCost {
+  font-weight: 500;
+  color: #111827;
+}
+
+.error {
+  text-align: center;
+  color: #dc2626;
+  padding: 24px;
+}
+
+.loading {
+  text-align: center;
+  color: #6b7280;
+  padding: 24px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+
+  .tabs {
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .tab {
+    padding: 8px 12px;
+    white-space: nowrap;
+  }
+
+  .materialHeader {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .quantities {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .materialCosts {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

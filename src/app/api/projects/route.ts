@@ -6,7 +6,22 @@ export async function GET() {
   try {
     const { db } = await connectToDatabase();
     const projects = await db.collection('projects').find({}).toArray();
-    return NextResponse.json(projects);
+
+    // Aggregate total received per project from funds_inflow collection
+    const sums = await db.collection('funds_inflow').aggregate([
+      { $group: { _id: '$projectId', totalReceived: { $sum: '$amount' } } }
+    ]).toArray();
+
+    const sumsMap: Record<string, number> = {};
+    sums.forEach((s: any) => { if (s && s._id) sumsMap[String(s._id)] = s.totalReceived || 0; });
+
+    // Attach receivedAmount to each project for UI
+    const enriched = projects.map((p: any) => ({
+      ...p,
+      receivedAmount: sumsMap[String(p._id)] || 0
+    }));
+
+    return NextResponse.json(enriched);
   } catch (err) {
     console.warn('Projects GET error, returning empty list', err);
     return NextResponse.json([]);

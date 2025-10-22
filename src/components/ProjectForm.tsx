@@ -112,7 +112,7 @@ export default function ProjectForm({ onSubmitProject, initialData }: { onSubmit
           type="submit"
           style={{
             padding: "10px 20px",
-            background: "#6d28d9",
+            background: "#0782b2",
             color: "#fff",
             border: "none",
             borderRadius: 6,

@@ -4,10 +4,17 @@ import { useState, useEffect, useRef } from "react";
 import { FaEdit, FaTrash, FaChevronLeft, FaChevronRight, FaSearch } from "react-icons/fa";
 import Link from "next/link";
 import styles from "../app/projects/projectList.module.css";
+import fetchWithAuth from "@/lib/fetchWithAuth";
 
 type Project = {
   _id: string;
   projectName: string;
+  profitability?: {
+    totalSalary: number;
+    totalPurchases: number;
+    totalReturns: number;
+    profit: number;
+  };
   clientName?: string;
   projectValue?: number;
   receivedAmount?: number;
@@ -19,6 +26,7 @@ type Project = {
   postalCode?: string;
   city?: string;
   country?: string;
+  currentStage?: string;
 };
 
 export default function ProjectList({
@@ -36,6 +44,7 @@ export default function ProjectList({
   const [currentPage, setCurrentPage] = useState(1);
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
+  const [projectProfitability, setProjectProfitability] = useState<Record<string, any>>({});
 
   useEffect(() => {
     const update = () => {
@@ -49,6 +58,30 @@ export default function ProjectList({
     window.addEventListener('resize', update);
     return () => window.removeEventListener('resize', update);
   }, []);
+
+  // Fetch profitability data for all projects
+  useEffect(() => {
+    const fetchProfitability = async () => {
+      for (const project of projects) {
+        try {
+          const res = await fetchWithAuth(`/api/projects/${project._id}/profitability`);
+          const data = await res.json();
+          if (res.ok) {
+            setProjectProfitability(prev => ({
+              ...prev,
+              [project._id]: data
+            }));
+          }
+        } catch (err) {
+          console.error(`Failed to fetch profitability for project ${project._id}:`, err);
+        }
+      }
+    };
+
+    if (projects.length > 0) {
+      fetchProfitability();
+    }
+  }, [projects]);
 
   // Dummy filter and search (frontend only)
   const filteredProjects = projects.filter(project => {
@@ -140,12 +173,14 @@ export default function ProjectList({
           <div className={styles.projectGrid} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
             {paginatedProjects.map((project, idx) => {
               const actualIndex = (currentPage - 1) * itemsPerPage + idx;
+              const profitability = projectProfitability[project._id];
+              
               return (
                 <div key={project._id} className={styles.projectCard}>
                   <div className={styles.cardHeader}>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                       <div style={{ fontSize: 12, opacity: 0.9 }}>Project For: {project.clientName || 'Client'}</div>
-                      <div style={{ fontSize: 12 }}>Active</div>
+                      <div style={{ fontSize: 12 }}>{project.status || 'Active'}</div>
                     </div>
                     <h3 className={styles.cardTitle}>{project.projectName}</h3>
                   </div>
@@ -161,6 +196,54 @@ export default function ProjectList({
                     </div>
                   </div>
 
+                  {/* Add profit information section */}
+                  {profitability && (
+                    <div className={styles.profitStripe}>
+                      <div className={styles.profitDetails}>
+                        <div className={styles.profitRow}>
+                          <span>Total Expenses:</span>
+                          <span>₹{profitability.expenses?.total?.toLocaleString() || '0'}</span>
+                        </div>
+                        <div className={styles.profitSubRow}>
+                          <span>Materials (Purchase - Returns):</span>
+                          <span>₹{profitability.expenses?.materials?.net?.toLocaleString() || '0'}</span>
+                        </div>
+                        <div className={styles.profitSubRow}>
+                          <span>Salary:</span>
+                          <span>₹{profitability.expenses?.salary?.toLocaleString() || '0'}</span>
+                        </div>
+                        <div className={styles.divider}></div>
+                        <div className={styles.profitRow}>
+                          <span>Project Value:</span>
+                          <span>₹{profitability.projectValue?.toLocaleString() || '0'}</span>
+                        </div>
+                        <div className={styles.profitRow}>
+                          <span>Expected Profit:</span>
+                          <span className={profitability.profit >= 0 ? styles.profitPositive : styles.profitNegative}>
+                            ₹{profitability.profit?.toLocaleString() || '-'}
+                          </span>
+                        </div>
+                      </div>
+                      {profitability.materials && profitability.materials.length > 0 && (
+                        <div className={styles.materialsDetails}>
+                          <div className={styles.materialsTitle}>Materials Summary</div>
+                          {profitability.materials.map((material: any) => (
+                            <div key={material.category} className={styles.materialRow}>
+                              <div className={styles.materialHeader}>
+                                <span>{material.category}</span>
+                                <span className={styles.materialCost}>₹{material.netCost?.toLocaleString()}</span>
+                              </div>
+                              <div className={styles.materialSubRow}>
+                                <span>Purchased: {material.purchaseQuantity} | Used: {material.usedQuantity} | Returned: {material.returnQuantity}</span>
+                                <span className={styles.materialQuantity}>Remaining: {material.remainingQuantity}</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
+
                   <div className={styles.cardBody}>
                     <div className={styles.cardBodyText}>
                       <div className={styles.cardRowTop}>
@@ -170,14 +253,12 @@ export default function ProjectList({
                     </div>
                     <div className={styles.cardFooter}>
                       <div className={styles.stageInfo}>
-                       
-                        <Link 
-                          href={`/projects/${project._id}/stages`}
-                          className={styles.detailsLink}
-                        >
-                          View Stage Details →
-                        </Link>
-                         <div className={styles.right}><strong>Current Stage:</strong> {project.currentStage ? `${project.currentStage} stage` : '-'}</div>
+                          <div style={{ display: 'flex', gap: 8, flexDirection: 'column', alignItems: 'flex-start' }}>
+                          <Link href={`/projects/${project._id}/stages`} className={styles.detailsLink}>View Stage Details →</Link>
+                            <Link href={`/projects/${project._id}/expenses?projectId=${project._id}`} className={styles.detailsLink}>View Expenses →</Link>
+                                                 
+
+                        </div>
                       </div>
                       <div className={styles.actionButtons}>
                         <button 
@@ -193,8 +274,10 @@ export default function ProjectList({
                           onClick={() => onDelete?.(actualIndex)}
                         >
                           <FaTrash />
+                          
                         </button>
                       </div>
+                      
                     </div>
                   </div>
                 </div>

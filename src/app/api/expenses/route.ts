@@ -2,10 +2,14 @@ import { NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/mongo';
 import { verifyToken, getTokenFromHeader } from '@/lib/auth';
 
-export async function GET() {
+export async function GET(req: Request) {
   try {
+    const url = new URL(req.url);
+    const projectId = url.searchParams.get('projectId');
     const { db } = await connectToDatabase();
-    const items = await db.collection('expenses').find({}).toArray();
+    const query: any = {};
+    if (projectId) query.projectId = projectId;
+    const items = await db.collection('expenses').find(query).toArray();
     return NextResponse.json(items);
   } catch (err) {
     console.warn('Expenses GET failed, returning empty', err);

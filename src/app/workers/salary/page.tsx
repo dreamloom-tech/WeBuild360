@@ -58,19 +58,19 @@ const [projects, setProjects] = useState<ProjectDropdownItem[]>([]);
     }
 
     // fallback to local storage
-    const stored = getStaff();
-    if (mounted) {
-      if (stored && stored.length > 0) setStaffList(stored as any[]);
-      else {
-        const mockData = [
-          { firstName: "John", lastName: "David", workerType: "Engineer", salary: 30000, wageType: "Monthly", advance: 5000 },
-          { firstName: "Arun", lastName: "Kumar", workerType: "Helper", salary: 12000, wageType: "Weekly", advance: 0 },
-          { firstName: "Ravi", lastName: "Shankar", workerType: "Carpenter", salary: 800, wageType: "Daily", advance: 200 },
-        ];
-        setStaffList(mockData);
-        saveStaff(mockData as any[]);
-      }
-    }
+    // const stored = getStaff();
+    // if (mounted) {
+    //   if (stored && stored.length > 0) setStaffList(stored as any[]);
+    //   else {
+    //     const mockData = [
+    //       { firstName: "John", lastName: "David", workerType: "Engineer", salary: 30000, wageType: "Monthly", advance: 5000 },
+    //       { firstName: "Arun", lastName: "Kumar", workerType: "Helper", salary: 12000, wageType: "Weekly", advance: 0 },
+    //       { firstName: "Ravi", lastName: "Shankar", workerType: "Carpenter", salary: 800, wageType: "Daily", advance: 200 },
+    //     ];
+    //     setStaffList(mockData);
+    //     saveStaff(mockData as any[]);
+    //   }
+    // }
 
     const history = getSalaryHistory();
     if (mounted && history && history.length > 0) setPaymentHistory(history as any[]);

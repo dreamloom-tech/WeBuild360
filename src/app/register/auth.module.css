@@ -1,36 +1,51 @@
 .wrap {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 70vh;
+  min-height: 100vh;
   padding: 24px;
+  background: #f8fafc;
 }
 
 .box {
   width: 100%;
   max-width: 420px;
   background: #fff;
-  
-  padding: 20px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(7, 130, 178, 0.08);
 }
 
 .box h2 {
-  margin: 0 0 12px;
+  margin: 0 0 24px;
+  color: #0782b2;
+  font-size: 28px;
+  text-align: center;
 }
 
 .box label {
   display: block;
-  margin-top: 10px;
+  margin-top: 16px;
   font-size: 14px;
+  font-weight: 500;
+  color: #334155;
 }
 
 .box input {
   width: 100%;
-  padding: 10px;
-  margin-top: 6px;
-  border: 1px solid #ddd;
+  padding: 12px 16px;
+  margin-top: 8px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
 
+.box input:focus {
+  outline: none;
+  border-color: #0782b2;
+  box-shadow: 0 0 0 3px rgba(7, 130, 178, 0.1);
 }
 
 .passwordInput {
@@ -40,7 +55,7 @@
 
 .passwordInput input {
   margin-top: 0;
-  padding-right: 35px;
+  padding-right: 42px;
 }
 
 .showPassword {
@@ -70,26 +85,70 @@
 }
 
 .submit {
-  margin-top: 16px;
+  margin-top: 24px;
   width: 100%;
-  padding: 10px;
-  background: #2b9af3;
+  padding: 14px;
+  background: #0782b2;
   color: #fff;
   border: none;
-  
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submit:hover {
+  background: #056690;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(7, 130, 178, 0.15);
+}
+
+.submit:active {
+  transform: translateY(0);
 }
 
 .error {
-  background: #ffe6e6;
-  color: #b30b0b;
-  padding: 8px;
-  
-  margin-bottom: 8px;
+  background: #fee2e2;
+  color: #dc2626;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  border: 1px solid #fecaca;
 }
 
 .linkRow {
-  margin-top: 12px;
+  margin-top: 20px;
+  text-align: center;
   font-size: 14px;
+  color: #64748b;
+}
+
+.linkRow a {
+  color: #0782b2;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.linkRow a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  margin-top: 40px;
+  text-align: center;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.copyright a {
+  color: #0782b2;
+  text-decoration: none;
+}
+
+.copyright a:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 480px) {

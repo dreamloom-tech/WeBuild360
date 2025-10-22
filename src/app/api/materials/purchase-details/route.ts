@@ -48,7 +48,13 @@ export async function GET() {
   try {
     const { db } = await connectToDatabase();
     const items = await db.collection('material_purchases').find({}).toArray();
-    return NextResponse.json(items);
+    // Ensure each item has the purchase type set
+    const itemsWithType = items.map(item => ({
+      ...item,
+      type: 'purchase',
+      materialAction: 'purchase'
+    }));
+    return NextResponse.json(itemsWithType);
   } catch (err) {
     console.warn('Purchase details GET failed, returning empty', err);
     return NextResponse.json([]);

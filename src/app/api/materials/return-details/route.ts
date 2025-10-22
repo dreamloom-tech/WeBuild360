@@ -44,10 +44,14 @@ export async function PUT(req: Request) {
   }
 }
 
-export async function GET() {
+export async function GET(req: Request) {
   try {
+    const url = new URL(req.url);
+    const projectId = url.searchParams.get('projectId');
     const { db } = await connectToDatabase();
-    const items = await db.collection('material_returns').find({}).toArray();
+    const query: any = {};
+    if (projectId) query.projectId = projectId;
+    const items = await db.collection('material_returns').find(query).toArray();
     return NextResponse.json(items);
   } catch (err) {
     console.warn('Return details GET failed, returning empty', err);

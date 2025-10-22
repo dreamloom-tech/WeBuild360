@@ -5,6 +5,11 @@ import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import { fetchWithAuth } from '@/lib/fetchWithAuth';
 
+function avatarUrlWithCache(url?: string | null, ts?: string | null) {
+  if (!url) return '/file.svg';
+  return ts ? `${url}?t=${ts}` : url;
+}
+
 type Props = {
   collapsed?: boolean;
   onToggle?: () => void;
@@ -25,6 +30,7 @@ export default function Navbar({ collapsed = false, onToggle, onMobileToggle }: 
   };
 
   const [user, setUser] = useState<any>(null);
+  const [avatarSrc, setAvatarSrc] = useState<string>('/file.svg');
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -41,6 +47,15 @@ export default function Navbar({ collapsed = false, onToggle, onMobileToggle }: 
     }
     load();
   }, []);
+
+  useEffect(() => {
+    try {
+      const ts = typeof window !== 'undefined' ? localStorage.getItem('avatar_ts') : '';
+  setAvatarSrc(avatarUrlWithCache(user?.avatar || '/file.svg', ts || null));
+    } catch (e) {
+  setAvatarSrc(user?.avatar || '/file.svg');
+    }
+  }, [user]);
 
   useEffect(() => {
     function onDoc(e: MouseEvent) {
@@ -118,12 +133,12 @@ export default function Navbar({ collapsed = false, onToggle, onMobileToggle }: 
             aria-expanded={open}
           >
             <img 
-              src={user?.avatar || '/images/layout_img/user_img.jpg'} 
+              src={avatarSrc} 
               alt={user?.name || 'User'} 
               className={styles.avatar}
               onError={(e) => {
                 const img = e.target as HTMLImageElement;
-                img.src = '/images/layout_img/user_img.jpg';
+                img.src = '/file.svg';
               }}
             />
             <div className={styles.profileInfo}>

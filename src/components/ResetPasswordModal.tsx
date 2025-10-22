@@ -106,7 +106,7 @@ export default function ResetPasswordModal({ open, onClose }: Props) {
               disabled={loading}
               style={{ 
                 padding: '8px 12px',
-                backgroundColor: '#6d28d9',
+                backgroundColor: '#0782b2',
                 color: 'white',
                 border: 'none',
                 borderRadius: '4px'

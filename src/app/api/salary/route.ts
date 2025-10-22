@@ -4,8 +4,12 @@ import { getTokenFromHeader, verifyToken } from '@/lib/auth';
 
 export async function GET(req: Request) {
   try {
+    const url = new URL(req.url);
+    const projectId = url.searchParams.get('projectId');
     const { db } = await connectToDatabase();
-    const items = await db.collection('salary_history').find({}).toArray();
+    const query: any = {};
+    if (projectId) query.projectId = projectId;
+    const items = await db.collection('salary_history').find(query).toArray();
     return NextResponse.json(items);
   } catch (err) {
     console.warn('Salary GET failed', err);

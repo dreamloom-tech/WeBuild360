@@ -47,20 +47,21 @@
   width: 100%;
   padding: 10px 12px 10px 38px;
   border: 1px solid #e5e7eb;
-  
+
   font-size: 14px;
   background: white;
 }
+
 .searchInput:focus {
   outline: none;
-  border-color: #6d28d9;
-  box-shadow: 0 0 0 1px #6d28d9;
+  border-color: #0782b2;
+  box-shadow: 0 0 0 1px #0782b2;
 }
 
 .filterSelect {
   padding: 10px 36px 10px 12px;
   border: 1px solid #e5e7eb;
-  
+
   font-size: 14px;
   background: white;
   min-width: 160px;
@@ -71,10 +72,11 @@
   background-repeat: no-repeat;
   background-size: 20px 20px;
 }
+
 .filterSelect:focus {
   outline: none;
-  border-color: #6d28d9;
-  box-shadow: 0 0 0 1px #6d28d9;
+  border-color: #0782b2;
+  box-shadow: 0 0 0 1px #0782b2;
 }
 
 .projectGrid {
@@ -103,18 +105,18 @@
 
 .createButton {
   padding: 8px 20px;
-  background: #6d28d9;
+  background: #0782b2;
   color: white;
   border: none;
-  
+
 }
 
 .projectCard {
   background: #fff;
-  
+
   padding: 0;
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
 }
@@ -124,7 +126,7 @@
   flex-direction: column;
   gap: 8px;
   padding: 18px;
-  background: #fff;
+  background: #8ecbff66;
   color: #374151;
 }
 
@@ -139,7 +141,10 @@
   align-items: center;
   justify-content: center;
 }
-.iconButton:hover { color: #111; }
+
+.iconButton:hover {
+  color: #111;
+}
 
 .cardBodyText {
   display: flex;
@@ -154,13 +159,20 @@
   justify-content: space-between;
   gap: 12px;
 }
+
 .cardRowBottom {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
-.left { text-align: left; }
-.right { text-align: right; }
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
 
 .cardColumn {
   display: flex;
@@ -200,27 +212,28 @@
   padding: 6px 12px;
   font-size: 13px;
   border: none;
-  
+
   cursor: pointer;
 }
 
 .update {
-  background-color: #6d28d9; /* purple */
+  background-color: #0782b2;
+  /* purple */
   color: #fff;
-  
+
   padding: 12px 20px;
 }
 
 .delete {
   background-color: #ef4444;
   color: #fff;
-  
+
   padding: 12px 16px;
 }
 
 /* Add header purple band and cyan stripe */
 .projectCard .cardHeader {
-  background: linear-gradient(180deg, #6d28d9 0%, #6d28d9 100%);
+  background: linear-gradient(#0e2c3f 0%, #0e2c3e 100%);
   color: white;
   padding: 22px 18px;
   text-align: center;
@@ -246,13 +259,21 @@
   justify-content: space-between;
 }
 
-.stripeLeft, .stripeRight {
+.stripeLeft,
+.stripeRight {
   display: flex;
   flex-direction: column;
 }
 
-.stripeLabel { font-size: 12px; opacity: 0.95; }
-.stripeValue { font-size: 16px; font-weight: 600; }
+.stripeLabel {
+  font-size: 12px;
+  opacity: 0.95;
+}
+
+.stripeValue {
+  font-size: 16px;
+  font-weight: 600;
+}
 
 .projectCard .cardBody {
   padding: 12px 18px 6px 18px;
@@ -261,7 +282,7 @@
 .projectGrid .projectCard {
   width: 360px;
   height: auto;
-  min-height: 260px;
+  min-height: 254px;
 }
 
 @media (max-width: 600px) {
@@ -270,8 +291,16 @@
     gap: 18px;
     padding: 0 12px;
   }
-  .projectCard { width: 100%; max-width: 420px; margin: 0 auto; }
-  .cardTitle { font-size: 18px; }
+
+  .projectCard {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .cardTitle {
+    font-size: 18px;
+  }
 }
 
 .pagination {
@@ -285,22 +314,31 @@
   background: transparent;
   border: 1px solid #ddd;
   padding: 8px;
-  
+
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
-.iconPage:disabled { opacity: 0.5; cursor: not-allowed; }
 
-.pageNumbers { display: flex; gap: 6px; align-items: center; }
+.iconPage:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pageNumbers {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
 
 .pageButton {
   padding: 6px 12px;
   border: none;
-  background: #6d28d9; /* purple matching card header */
+  background: #0782b2;
+  /* purple matching card header */
   color: #fff;
-  
+
   cursor: pointer;
   font-size: 13px;
   display: flex;
@@ -322,9 +360,9 @@
 }
 
 .active {
-  background-color: #6d28d9;
+  background-color: #0782b2;
   color: #fff;
-  border-color: #6d28d9;
+  border-color: #0782b2;
 }
 
 .ellipsis {
@@ -332,4 +370,116 @@
   font-size: 13px;
   color: #999;
   user-select: none;
+}
+
+.detailsLink {
+  color: #0782b2;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+  .detailsLink:hover {
+    text-decoration: underline;
+  }
+
+  .stageInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+/* Profitability section styles */
+.profitStripe {
+  padding: 12px 16px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.profitDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.profitRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.profitSubRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: #6b7280;
+  padding-left: 12px;
+}
+
+.divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 4px 0;
+}
+
+.profitPositive {
+  color: #059669;
+  font-weight: 600;
+}
+
+.profitNegative {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+/* Materials summary styles */
+.materialsDetails {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.materialsTitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: #4b5563;
+  margin-bottom: 8px;
+}
+
+.materialRow {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.materialHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 4px;
+}
+
+.materialCost {
+  color: #0782b2;
+}
+
+.materialSubRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.materialQuantity {
+  font-weight: 500;
+  color: #374151;
 }
